@@ -28,7 +28,7 @@ def input_matrix():
         row = list(map(int, input(f"Введите {m} элементов для строки {i+1}: ").split()))
         matrix.append(row)
     return matrix
-
+ 
 def input_large_numbers():
     array1 = list(map(int, input("Введите первое большое число: ").split()))
     array2 = list(map(int, input("Введите второе большое число: ").split()))
@@ -38,3 +38,12 @@ def input_array_and_sum():
     array = list(map(int, input("Введите массив: ").split()))
     target_sum = int(input("Введите число: "))
     return array, target_sum
+
+def generate_random_matrix(n, m):
+    return [[random.randint(0, 9) for _ in range(m)] for _ in range(n)]
+
+def generate_random_large_numbers(length):
+    return [random.randint(0, 9) for _ in range(length)]
+
+def generate_random_array(length):
+    return [random.randint(0, 9) for _ in range(length)]
