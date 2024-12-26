@@ -91,4 +91,12 @@ def count_subarrays_with_sum(array, target_sum):
                 count += 1
     return count
 
+def output_result():
+    if result is not None:
+        print("Результат:")
+        print(result)
+    else:
+        print("Сначала выполните алгоритм.")
+
+
 
