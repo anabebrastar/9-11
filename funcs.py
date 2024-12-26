@@ -9,8 +9,10 @@ array = None
 target_sum = None
 result = None
 
-# Функция для отображения главного меню
 def show_menu():
+    """
+    Отображает главное меню и обрабатывает выбор пользователя.
+    """
     while True:
         print("Меню:")
         print("1. Выбор задания")
@@ -35,8 +37,10 @@ def show_menu():
         else:
             print("Неверный выбор. Попробуйте снова.")
 
-# Функция для выбора задания
 def select_task():
+    """
+    Позволяет пользователю выбрать задание.
+    """
     print("Выберите задание:")
     print("1. Поворот матрицы")
     print("2. Сумма или разность больших чисел")
@@ -44,8 +48,10 @@ def select_task():
     global selected_task
     selected_task = input("Введите номер задания: ")
 
-# Функция для ввода данных в зависимости от выбранного задания
 def input_data():
+    """
+    В зависимости от выбранного задания, вызывает соответствующую функцию для ввода данных.
+    """
     global matrix, array1, array2, array, target_sum, result
     result = None
     if selected_task == '1':
@@ -97,8 +103,10 @@ def input_data():
     else:
         print("Сначала выберите задание.")
 
-# Функция для ввода матрицы
 def input_matrix():
+    """
+    Позволяет пользователю ввести матрицу.
+    """
     n = int(input("Введите количество строк матрицы: "))
     m = int(input("Введите количество столбцов матрицы: "))
     matrix = []
@@ -107,32 +115,44 @@ def input_matrix():
         matrix.append(row)
     return matrix
 
-# Функция для ввода двух больших чисел
 def input_large_numbers():
+    """
+    Позволяет пользователю ввести два больших числа.
+    """
     array1 = list(map(int, input("Введите первое большое число: ").split()))
     array2 = list(map(int, input("Введите второе большое число: ").split()))
     return array1, array2
 
-# Функция для ввода массива и числа
 def input_array_and_sum():
+    """
+    Позволяет пользователю ввести массив и число.
+    """
     array = list(map(int, input("Введите массив: ").split()))
     target_sum = int(input("Введите число: "))
     return array, target_sum
 
-# Функция для генерации случайной матрицы
 def generate_random_matrix(n, m):
+    """
+    Генерирует случайную матрицу размером n x m.
+    """
     return [[random.randint(0, 9) for _ in range(m)] for _ in range(n)]
 
-# Функция для генерации случайных больших чисел
 def generate_random_large_numbers(length):
+    """
+    Генерирует случайные большие числа длиной length.
+    """
     return [random.randint(0, 9) for _ in range(length)]
 
-# Функция для генерации случайного массива
 def generate_random_array(length):
+    """
+    Генерирует случайный массив длиной length.
+    """
     return [random.randint(0, 9) for _ in range(length)]
 
-# Функция для выполнения алгоритма в зависимости от выбранного задания
 def execute_algorithm():
+    """
+    Выполняет алгоритм в зависимости от выбранного задания.
+    """
     global result
     if selected_task == '1':
         direction = input("Введите направление поворота (clockwise/counterclockwise): ")
@@ -145,8 +165,10 @@ def execute_algorithm():
     else:
         print("Сначала выберите задание и введите данные.")
 
-# Функция для поворота матрицы
 def rotate_matrix(matrix, direction):
+    """
+    Поворачивает матрицу на 90 градусов по часовой стрелке или против часовой стрелки.
+    """
     if direction == 'clockwise':
         return [list(row) for row in zip(*matrix[::-1])]
     elif direction == 'counterclockwise':
@@ -154,8 +176,10 @@ def rotate_matrix(matrix, direction):
     else:
         raise ValueError("Неверное направление поворота")
 
-# Функция для суммы или разности больших чисел
 def sum_large_numbers(array1, array2, operation):
+    """
+    Выполняет сумму или разность двух больших чисел.
+    """
     if operation == 'sum':
         return [a + b for a, b in zip(array1, array2)]
     elif operation == 'difference':
@@ -163,8 +187,10 @@ def sum_large_numbers(array1, array2, operation):
     else:
         raise ValueError("Неверная операция")
 
-# Функция для подсчета подмассивов с заданной суммой
 def count_subarrays_with_sum(array, target_sum):
+    """
+    Подсчитывает количество подмассивов, сумма которых равна заданному числу.
+    """
     count = 0
     for i in range(len(array)):
         current_sum = 0
@@ -174,8 +200,10 @@ def count_subarrays_with_sum(array, target_sum):
                 count += 1
     return count
 
-# Функция для вывода результата
 def output_result():
+    """
+    Выводит результат выполнения алгоритма.
+    """
     if result is not None:
         print("Результат:")
         print(result)
