@@ -1,4 +1,5 @@
 import random
+import threading
 
 # Глобальные переменные для хранения состояния программы
 selected_task = None
